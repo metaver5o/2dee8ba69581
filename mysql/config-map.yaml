@@ -8,3 +8,6 @@ data:
     SET GLOBAL slow_query_log = 'ON';
     SET GLOBAL long_query_time = 5;
     SET GLOBAL slow_query_log_file = '/var/log/mysql_slow.log';
+    CREATE USER 'mysqld_exporter'@'localhost' IDENTIFIED BY 'password' WITH MAX_USER_CONNECTIONS 3;
+    GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'mysqld_exporter'@'localhost';
+    

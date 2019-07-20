@@ -146,3 +146,8 @@ data:
         - source_labels: [__meta_kubernetes_service_name]
           action: replace
           target_label: kubernetes_name
+
+      - job_name: 'mysqld_exporter'
+          static_configs:
+            - targets:
+                - mysql:9104
